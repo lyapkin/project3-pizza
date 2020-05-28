@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<header>
+		<div><a href="{% url 'index' %}">Home</a></div>
+		<nav>
+			{% if user.is_authenticated %}
+			<a href="#">Cart</a>
+			<a href="{% url 'logout' %}">LogOut</a>
+			{% else %}
+			<a href="{% url 'register' %}">Registration</a>
+			<a href="{% url 'login' %}">LogIn</a>
+			{% endif %}
+		</nav>
+	</header>
+	{% block content %}
+	<h1>Pizza</h1>
+	{% endblock %}
+</body>
+</html>
