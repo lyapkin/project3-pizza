@@ -1,0 +1,110 @@
+{% extends 'orders/base.html' %}
+
+{% block content %}
+<table>
+	<tr>
+		<th>Regular Pizza</th>
+		{% for item in menu.regular_pizza %}
+		<tr>
+			<td>{{ item.item }}</td>
+			{% if item.price %}
+			<td>{{ item.price }}</td>
+			{% endif %}
+			{% if item.large_price %}
+			<td>{{ item.large_price }}</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tr>
+
+	<tr>
+		<th>Sicilian Pizza</th>
+		{% for item in menu.sicilian_pizza %}
+		<tr>
+			<td>{{ item.item }}</td>
+			{% if item.price %}
+			<td>{{ item.price }}</td>
+			{% endif %}
+			{% if item.large_price %}
+			<td>{{ item.large_price }}</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tr>
+
+	<tr>
+		<th>Toppings</th>
+		{% for item in menu.toppings %}
+		<tr>
+			<td>{{ item.item }}</td>
+			{% if item.price %}
+			<td>{{ item.price }}</td>
+			{% endif %}
+			{% if item.large_price %}
+			<td>{{ item.large_price }}</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tr>
+
+	<tr>
+		<th>Subs</th>
+		{% for item in menu.subs %}
+		<tr>
+			<td>{{ item.item }}</td>
+			{% if item.price %}
+			<td>{{ item.price }}</td>
+			{% endif %}
+			{% if item.large_price %}
+			<td>{{ item.large_price }}</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tr>
+
+	<tr>
+		<th>Pasta</th>
+		{% for item in menu.pasta %}
+		<tr>
+			<td>{{ item.item }}</td>
+			{% if item.price %}
+			<td>{{ item.price }}</td>
+			{% endif %}
+			{% if item.large_price %}
+			<td>{{ item.large_price }}</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tr>
+
+	<tr>
+		<th>Salads</th>
+		{% for item in menu.salads %}
+		<tr>
+			<td>{{ item.item }}</td>
+			{% if item.price %}
+			<td>{{ item.price }}</td>
+			{% endif %}
+			{% if item.large_price %}
+			<td>{{ item.large_price }}</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tr>
+
+	<tr>
+		<th>Dinner Platters</th>
+		{% for item in menu.dinner_platters %}
+		<tr>
+			<td>{{ item.item }}</td>
+			{% if item.price %}
+			<td>{{ item.price }}</td>
+			{% endif %}
+			{% if item.large_price %}
+			<td>{{ item.large_price }}</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tr>
+</table>
+{% endblock %}
