@@ -1,110 +1,180 @@
 {% extends 'orders/base.html' %}
+{% load static %}
+{% block scripts %}
+	<script type="text/javascript" src="{% static 'orders/menu.js' %}"></script>
+{% endblock %}
 
 {% block content %}
-<table>
-	<tr>
-		<th>Regular Pizza</th>
-		{% for item in menu.regular_pizza %}
-		<tr>
-			<td>{{ item.item }}</td>
-			{% if item.price %}
-			<td>{{ item.price }}</td>
-			{% endif %}
-			{% if item.large_price %}
-			<td>{{ item.large_price }}</td>
-			{% endif %}
-		</tr>
-		{% endfor %}
-	</tr>
+<div id="menu-wrapper">
+	<table>
+		<thead>
+			<tr>
+				<th data-type="pizza">Regular Pizza</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in menu.regular_pizza %}
+			<tr>
+				<td>{{ item.item }}</td>
+				{% if item.price %}
+				<td class="price">{{ item.price }}</td>
+				{% endif %}
+				{% if item.large_price %}
+				<td class="price large_price">{{ item.large_price }}</td>
+				{% endif %}
+				{% if user.is_authenticated %}
+				<td><button>Add to cart</button></td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+		</table>
+	</tbody>
 
-	<tr>
-		<th>Sicilian Pizza</th>
-		{% for item in menu.sicilian_pizza %}
-		<tr>
-			<td>{{ item.item }}</td>
-			{% if item.price %}
-			<td>{{ item.price }}</td>
-			{% endif %}
-			{% if item.large_price %}
-			<td>{{ item.large_price }}</td>
-			{% endif %}
-		</tr>
-		{% endfor %}
-	</tr>
+	<table>
+		<thead>
+			<tr>
+				<th data-type="pizza">Sicilian Pizza</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in menu.sicilian_pizza %}
+			<tr>
+				<td>{{ item.item }}</td>
+				{% if item.price %}
+				<td class="price">{{ item.price }}</td>
+				{% endif %}
+				{% if item.large_price %}
+				<td class="price large_price">{{ item.large_price }}</td>
+				{% endif %}
+				{% if user.is_authenticated %}
+				<td><button>Add to cart</button></td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+			</tr>
+		</tbody>
+	</table>
 
-	<tr>
-		<th>Toppings</th>
-		{% for item in menu.toppings %}
-		<tr>
-			<td>{{ item.item }}</td>
-			{% if item.price %}
-			<td>{{ item.price }}</td>
-			{% endif %}
-			{% if item.large_price %}
-			<td>{{ item.large_price }}</td>
-			{% endif %}
-		</tr>
-		{% endfor %}
-	</tr>
+	<table>
+		<thead>
+			<tr>
+				<th data-type="topping">Toppings</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in menu.toppings %}
+			<tr>
+				<td class="topping-name">{{ item.item }}</td>
+				{% if item.price %}
+				<td class="price">{{ item.price }}</td>
+				{% endif %}
+				{% if item.large_price %}
+				<td class="price large_price">{{ item.large_price }}</td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+			</tr>
+		</tbody>
+	</table>
 
-	<tr>
-		<th>Subs</th>
-		{% for item in menu.subs %}
-		<tr>
-			<td>{{ item.item }}</td>
-			{% if item.price %}
-			<td>{{ item.price }}</td>
-			{% endif %}
-			{% if item.large_price %}
-			<td>{{ item.large_price }}</td>
-			{% endif %}
-		</tr>
-		{% endfor %}
-	</tr>
+	<table>
+		<thead>
+			<tr>
+				<th data-type="sub">Subs</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in menu.subs %}
+			<tr>
+				<td>{{ item.item }}</td>
+				{% if item.price %}
+				<td class="price">{{ item.price }}</td>
+				{% endif %}
+				{% if item.large_price %}
+				<td class="price large_price">{{ item.large_price }}</td>
+				{% endif %}
+				{% if user.is_authenticated %}
+				<td><button>Add to cart</button></td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+			</tr>
+		</tbody>
+	</table>
 
-	<tr>
-		<th>Pasta</th>
-		{% for item in menu.pasta %}
-		<tr>
-			<td>{{ item.item }}</td>
-			{% if item.price %}
-			<td>{{ item.price }}</td>
-			{% endif %}
-			{% if item.large_price %}
-			<td>{{ item.large_price }}</td>
-			{% endif %}
-		</tr>
-		{% endfor %}
-	</tr>
+	<table>
+		<thead>
+			<tr>
+				<th data-type="pasta">Pasta</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in menu.pasta %}
+			<tr>
+				<td>{{ item.item }}</td>
+				{% if item.price %}
+				<td class="price">{{ item.price }}</td>
+				{% endif %}
+				{% if item.large_price %}
+				<td class="price large_price">{{ item.large_price }}</td>
+				{% endif %}
+				{% if user.is_authenticated %}
+				<td><button>Add to cart</button></td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+			</tr>
+		</tbody>
+	</table>
 
-	<tr>
-		<th>Salads</th>
-		{% for item in menu.salads %}
-		<tr>
-			<td>{{ item.item }}</td>
-			{% if item.price %}
-			<td>{{ item.price }}</td>
-			{% endif %}
-			{% if item.large_price %}
-			<td>{{ item.large_price }}</td>
-			{% endif %}
-		</tr>
-		{% endfor %}
-	</tr>
+	<table>
+		<thead>
+			<tr>
+				<th data-type="salad">Salads</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in menu.salads %}
+			<tr>
+				<td>{{ item.item }}</td>
+				{% if item.price %}
+				<td class="price">{{ item.price }}</td>
+				{% endif %}
+				{% if item.large_price %}
+				<td class="price large_price">{{ item.large_price }}</td>
+				{% endif %}
+				{% if user.is_authenticated %}
+				<td><button>Add to cart</button></td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+			</tr>
+		</tbody>
+	</table>
 
-	<tr>
-		<th>Dinner Platters</th>
-		{% for item in menu.dinner_platters %}
-		<tr>
-			<td>{{ item.item }}</td>
-			{% if item.price %}
-			<td>{{ item.price }}</td>
-			{% endif %}
-			{% if item.large_price %}
-			<td>{{ item.large_price }}</td>
-			{% endif %}
-		</tr>
-		{% endfor %}
-	</tr>
-</table>
+	<table>
+		<thead>
+			<tr>
+				<th data-type="dinner">Dinner Platters</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in menu.dinner_platters %}
+			<tr>
+				<td>{{ item.item }}</td>
+				{% if item.price %}
+				<td class="price">{{ item.price }}</td>
+				{% endif %}
+				{% if item.large_price %}
+				<td class="price large_price">{{ item.large_price }}</td>
+				{% endif %}
+				{% if user.is_authenticated %}
+				<td><button>Add to cart</button></td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+			</tr>
+		</tbody>
+	</table>
+</div>
 {% endblock %}

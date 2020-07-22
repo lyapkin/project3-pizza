@@ -1,0 +1,41 @@
+{% extends 'orders/base.html' %}
+{% load static %}
+{% block scripts %}
+<script type="module" src="{% static 'orders/cart.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<h1>{{ user.username }}</h1>
+<div>
+	<h2>Products in your cart</h2>
+	<div class="cart-orders">
+		
+	</div>
+</div>
+<hr>
+<div>
+	<button id="order-button">Place the order</button>
+</div>
+<div id="made_orders">
+	<h2>Orders</h2>
+	{% for order in orders %}
+
+	<div>
+		<h3>Order № {{ order.number }}</h3>
+
+		{% for dish in order.dishes %}
+		<div>
+			<p>{{ dish.section }} {{ dish.name }}</p>
+
+			{% for set in dish.sets %}
+			<p>Set: {{ set.toppings }} {{ set.size }} {{ set.count }}</p>
+			{% endfor %}
+
+		</div>
+		{% endfor %}
+
+	</div>
+
+	{% endfor %}
+</div>
+{% endblock %}

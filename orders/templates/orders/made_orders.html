@@ -1,0 +1,8 @@
+<div>
+	<h3>Order №{{ number }}</h3>
+	{% for dish in dishes %}
+	<div>
+		<p>{{ dish.section }} {{ dish.name }}</p>
+	</div>
+	{% endfor %}
+</div>
